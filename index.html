@@ -1,0 +1,357 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="angularMaterial.css"> 
+  <link rel="stylesheet" href="xmdWizard.css">
+</head>
+<body ng-app="BlankApp" ng-cloak>
+  <!--
+    Your HTML content here
+  -->  
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<!--   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+
+
+<!--  <script src="https://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+   <script type="text/javascript" src="ckeditor/ckedit.js"></script> --> 
+   <script type="text/javascript" src="app.js"></script>
+   <script type="text/javascript" src="angularController.js"></script>
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
+
+ <!--   <script src="https://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+   <script src="https://s3-ap-southeast-1.amazonaws.com/naveensingh/posts_data/ckeditor_example/ng-ckeditor.min.js"></script> -->
+
+
+  
+  <script type="text/javascript" src="xmdWizard.directive.js"></script>
+
+
+
+  <!-- Your application bootstrap  -->
+  
+<div>
+
+
+
+</div>
+
+<form name="contactForm" class ="form" ng-submit="save()">
+
+<div data-ng-controller="ContactFormController as cntrl" layout="row" layout-align="center center" class ="formcantroller md-inline-form">
+   <div  flex-sm="100" flex-gt-sm="90" flex-gt-md="50" flex-gt-lg="70" class="md-whiteframe-z2">
+        <md-content layout-padding class="md-padding" margin: 3px; >
+
+         <md-toolbar class="md-hue-2">
+          <div class="md-toolbar-tools">
+            
+            <h2 flex md-truncate>Add Candidate</h2>
+
+          </div>
+         </md-toolbar>
+      <div >
+      
+        <!-- <md-tabs  md-stretch-tabs="always" class="md-primary"  md-dynamic-height md-selected="cntrl.selectedTab">
+        <md-tab label="Personal" id="tab1" aria-controls="Tab 1"> -->
+      
+  <div layout="row" layout-align="center center">
+      <xmd-wizard active-step="currentStep" on-change="stepChanged()"  on-save="wizardSaved()" >
+      <xmd-step label="Personal" xmd-required="true">
+           <!--  <md-tab-body> -->
+        <div layout-gt-xs="row" layout-margin>
+          <md-input-container class="md-block" flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40" >
+            <label>First Name:</label>
+             <!-- <div class="input-group"  ng-class="{ 'has-error' : contactForm.firstName.$invalid && !contactForm.firstName.$pristine }"> -->
+            <input name="firstName" ng-model="firstName" ng-pattern="/^[a-zA-Z]*$/" ng-minlength="2" required="required">
+            <div ng-messages="contactForm.firstName.$invalid && !contactForm.firstName.$pristine">
+             <div ng-message="required" ng-hide="contactForm.firstName.$valid">First name is required.</div>
+              </div>
+          </md-input-container>
+
+          
+          <md-input-container class="md-block"  flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Last Name:</label>
+            <!-- <div class="input-group" ng-class="{ 'has-error' : contactForm.lastName.$invalid && !contactForm.lastName.$pristine }"> -->
+            <input name="lastName" ng-model="lastName" ng-pattern="/^[a-zA-Z]*$/" ng-minlength="2" required>
+            <div ng-messages="contactForm.lastName.$invalid && !contactForm.lastName.$pristine">
+            <div ng-message="contactForm.lastName.$invalid && !contactForm.lastName.$pristine" class="help-block">Last name is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row" layout-margin>
+          <md-input-container class="md-block"  flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Email:</label>
+            <!-- <div class="input-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine}"> -->
+            <input type ="email" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+            <div ng-messages="contactForm.email.$invalid && !contactForm.email.$pristine">
+            <div ng-message="contactForm.email.$invalid && !contactForm.email.$pristine" class="help-block">Please enter valid email address</div>
+            </div>
+          </md-input-container>
+
+          
+        </div>
+
+        <div layout-gt-sm="row" layout-margin>
+          <md-input-container class="md-block" flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Contact Number:</label>
+             <!-- <div class="input-group" ng-class="{ 'has-error' : contactForm.contactNumber.$invalid && !contactForm.contactNumber.$pristine}"> -->
+            <input type="number" name="contactNumber" ng-model="contactNumber" ng-pattern="/^[0-9]{9}$/" ng-maxlength="10" required >
+            <div ng-messages="contactForm.contactNumber.$invalid && !contactForm.contactNumber.$pristine">
+            <div ng-message="contactForm.contactNumber.$invalid && !contactForm.contactNumber.$pristine && contactForm.contactNumber.$error.pattern" class="help-block">Please enter valid number</div>
+                </div> 
+          </md-input-container>
+
+          <md-input-container class="md-block"  flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Alternate Contact Number:</label>
+           <!--    <div class="input-group" ng-class="{ 'has-error' : contactForm.alternateContactNo.pattern}"> -->
+            <input type="number" name="alternateContactNo" ng-model="alternateContactNo" maxlength="10" ng-pattern="/^[0-9]{9}$/" ng-maxlength="10">
+            <div ng-messages="contactForm.alternateContactNo.pattern">
+             <div ng-message="contactForm.alternateContactNo.$error.pattern" class="help-block">Please enter valid number</div>
+                </div>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container  class="md-block"  flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Date of application</label>
+              <md-datepicker name="myDate" ng-model="myDate">
+               </md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block"  flex-sm="35" flex-gt-sm="35" flex-md="40" flex-gt-md="40" flex-lg="40" flex-gt-lg="40">
+            <label>Referred By</label>
+            <!-- <div class="input-group"  ng-class="{ 'has-error' : contactForm.referredBy.$invalid && !contactForm.referredBy.$pristine }"> -->
+            <input name="referredBy" ng-model="referredBy" required>
+            <div ng-messages="contactForm.referredBy.$invalid && !contactForm.referredBy.$pristine">
+            <div ng-message="contactForm.referredBy.$invalid && !contactForm.referredBy.$pristine" class="help-block">Referred By is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <!-- </md-tab-body>
+        </md-tab> -->
+        </xmd-step>
+
+       <!--  <md-tab label="Vacancy" md-selected="Active" id="tab2" aria-controls="Tab 2"> -->
+          <xmd-step label="Vacacny" xmd-required="true">
+        <!--  <md-tab-body> -->
+         <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex="15">
+        <label>Job vacancy</label>
+        </md-input-container>
+          <md-select ng-model="selectedItem" md-selected-text="getSelectedText()" class="md-block" flex-sm="20" flex-gt-sm="35" flex-md="35" flex-gt-md="35" flex-lg="35" flex-gt-lg="35" required>
+          <md-optgroup label="items">
+            <md-option name="selectedItem" ng-value="item" ng-repeat="item in items">Item {{item}}</md-option>
+          </md-optgroup>
+        </md-select>
+        
+        <md-input-container class="md-block" flex-sm="15" flex-gt-sm="35" flex-md="35" flex-gt-md="35" flex-lg="35" flex-gt-lg="35">
+        <label>status</label>
+        <input name="statys" ng-model="status" disabled>
+        </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+         <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+          <i class="material-icons" name="addMore" ng-model="addMore">add</i>
+        Add more vacancies
+        </md-input-container>
+        </div>
+        <!-- </md-tab-body>
+        </md-tab> -->
+         </xmd-step>
+
+         <!-- <md-tab label="Resume" id="tab3" aria-controls="Tab 3">
+
+          <md-tab-body> -->
+            
+      <xmd-step label="Resume" xmd-required="true">
+
+              <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex="20">
+            <label>Resume</label>
+            </md-input-container>
+            <choose-file layout="row" class="md-block" flex-sm="15" flex-gt-sm="35" flex-md="35" flex-gt-md="35" flex-lg="35" flex-gt-lg="35">
+            <input id="fileInput" type="file" class="ng-hide">
+            <md-input-container flex class="md-block">
+              <input type="text" ng-model="fileName" required disabled>
+              <div class="hint">Accepts .docx, .doc, .odt, .pdf, .rtf, .txt up to 1MB</div>
+            </md-input-container>
+            <div>
+              <md-button id="uploadButton" class="md-fab md-mini">
+                <md-icon class="material-icons">attach_file</md-icon>
+              </md-button>
+            </div>
+            </choose-file> 
+            </div>
+
+             <div layout-gt-sm="row">
+             <md-input-container class="md-block" class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+            <label>Short Resume Summary</label>
+            </md-input-container>
+           <!--  <div class="example">
+                  <textarea ckeditor="editorOptions" ng-model="content_two"></textarea>
+                   {{content_two}}
+            </div> -->
+
+            <textarea name="short_summary" ng-model="short_summary"></textarea>
+            </div>
+
+            <div layout-gt-sm="row">
+            <div id="info" class="md-block" name="short_summary1" ng-model="short_summary1"> 
+                  Provide short summary of your resume. Use following format -
+                           
+                            Loc- {Location}, {Degree} Total Exp. - {exp} Yrs, Relv. Exp.-{exp} yrs,
+                            Tech Skills- {skills}, 
+                            Project details- 
+                            1. {Name of the recent project): ( Key skills used), 
+                            2. (Name of the project ): (key skills used), 
+                            3. (Project name): (key skills). Mention at least 2-3 projects.
+                            N.P.-{notice period} days.
+            </div>
+            </div>
+
+            <div layout-gt-sm="row" id="summary">
+            <md-input-container class="md-block" class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+            <label>Generate Short Summary</label>
+            </md-input-container>
+            </div>
+
+        <!-- </md-tab-body>
+        </md-tab> -->
+        </xmd-step>
+         <!-- <md-tab label="Project Details" id="tab4" aria-controls="Tab 4">
+
+          <md-tab-body> -->
+
+               <!-- <md-tab label="Job Details" id="tab5" aria-controls="Tab 5">
+           
+              <md-tab-body> -->
+                  <xmd-step label="Job Details" xmd-required="true">
+                 <div layout-gt-xs="row">
+                      <md-input-container class="md-block" class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                        <label>Education Details</label>
+                      </md-input-container>
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Highest Qualification</label>
+                      <input name="qualification" ng-model="qualification" required>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Specification</label>
+                      <input name="specification" ng-model="specification" required>
+                    </md-input-container>
+
+                     <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Keywords</label>
+                      <input name="keywords" ng-model="keywords">
+                    </md-input-container>
+
+                  </div>
+
+
+                    <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex="20">
+                        <label></label>
+                      </md-input-container>
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Current Compnay</label>
+                      <input name="currentCompany" ng-model="currentCompany" required>
+                    </md-input-container>
+
+                     <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Total Experience(in years)</label>
+                      <input name="totExperience" ng-model="totExperience" required>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Current CTC(LPA)</label>
+                      <input name="currentCTC" ng-model="currentCTC" required>
+                    </md-input-container>
+                    
+                    </div>
+
+                    <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex="20">
+                        <label></label>
+                      </md-input-container>
+                    
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Expected CTC(LPA)</label>
+                      <input name="expectedCTC" ng-model="expectedCTC" required>
+                    </md-input-container>
+
+                     <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Notice Period(In days)</label>
+                      <input name="noticePeriod" ng-model="noticePeriod" required>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-sm="15" flex-gt-sm="30" flex-md="30" flex-gt-md="30" flex-lg="30" flex-gt-lg="30">
+                      <label>Current Location</label>
+                      <input name="currentLocation" ng-model="currentLocation" required>
+                    </md-input-container>
+                    </div>
+
+                  
+              <!-- </md-tab-body>
+          </md-tab> -->
+          </xmd-step>
+  <!--   </md-tabs> -->
+  </xmd-wizard>
+</div>
+                    <br>
+                    <!-- <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex="20">
+                    <label> * Required fields </label>
+                    </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row">
+                    <md-button type="button" class="md-raised" ng-disabled="previous" ng-click="cntrl.previousTab()">Previous</md-button>
+
+                  <md-button type="button" class="md-raised" ng-disabled="contactForm.$invalid" ng-click="cntrl.nextTab()">Next</md-button>
+
+                  <md-button type="submit" class="md-raised md-primary" ng-disabled="contactForm.$invalid" ng-class="{'md-raised': (contactForm.$dirty && contactForm.$valid) }"
+                               aria-label="Save">Finish</md-button>
+                    </div>   -->
+                    <!-- <div layout="column" class="x-wizard">
+  <md-nav-bar md-selected-nav-item="activeStep" nav-bar-aria-label="navigation links">
+    <md-nav-item ng-repeat="stepButton in globals.steps" md-nav-click="goto(stepButton, $index)" name="{{$index}}">
+      <div layout="row">
+        <div class="step-number" md-colors="{background: 'accent-400'}">{{$index+1}}</div>
+        <div>{{stepButton.label}}</div>
+      </div>
+    </md-nav-item>
+  </md-nav-bar>
+  <div class="x-content" layout="column"  flex>
+  </div>
+  <div layout="row">
+    <span flex></span>
+    <md-button id="back-btn" class="md-raised" ng-disabled="activeStep == 0" ng-click="goBack()">Back</md-button>
+    <md-button id="next-btn" class="md-raised" ng-hide="activeStep == globals.totalSteps - 1" ng-disabled="!nestedForms[activeStep]" ng-click="goToNext()">Next</md-button>
+    <md-button id="next-btn" class="md-raised md-primary" ng-show="activeStep == globals.totalSteps - 1" ng-click="save()">Save</md-button>
+  </div>
+</div> -->
+               </form>
+            </div>
+        </md-content>
+    </div>
+
+</div>
+ </body>
+</html>

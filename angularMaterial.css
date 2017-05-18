@@ -1,0 +1,241 @@
+.formcantroller{
+  margin-top: 60px;
+
+}
+.navBardemoBasicUsage md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; 
+}
+
+.hint {
+  position: absolute;
+  left: 5px;
+  right: auto;
+  bottom: -15px;
+  font-size: 14px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey; 
+}
+
+/*.example {
+ height: 200px;
+}*/
+
+
+@media (min-width: 1281px) {
+  
+#info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+  margin-left: 190px;
+}
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+#info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+  margin-left: 190px;
+}  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+#info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+  margin-left: 10px;
+}
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+ #info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+  margin-left: 10px;
+}
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+ #info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+
+}
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+ #info{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:150px; 
+  width:390px; 
+  margin-top: 10px; 
+}
+  
+}
+ 
+#details{
+  float:center; 
+  padding:10px;
+  border:1px solid;
+  border-color:#000000;
+  border-radius:25px;
+  height:210px; 
+  width:390px; 
+  margin-top: 10px; 
+  margin-left: 170px;
+}
+
+
+.ng-hide {
+  opacity: 0;
+}
+
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px; }
+
+.inputdemoErrors md-input-container > p {
+  font-size: 0.8em;
+  text-align: left;
+  width: 100%; }
+/*
+.tabsdemoStaticTabs md-content md-tabs {
+  border: 1px solid #e1e1e1; }
+  .tabsdemoStaticTabs md-content md-tabs md-tab-content {
+    padding: 25px; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(1) {
+      background-color: #cfd8dc; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(2) {
+      background-color: #ffb74d; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(3) {
+      background-color: #ffd54f; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(4) {
+      background-color: #aed581; }
+    .tabsdemoStaticTabs md-content md-tabs md-tab-content:nth-child(5) {
+      background-color: #00897b; }
+
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px; }
+
+.tabsdemoStaticTabs .after-tabs-area > md-checkbox {
+  margin-top: 26px;
+  margin-left: 0; }*/
+
+  /*.md-padding{
+    background-color: rgb(255,255,255);  
+}*/
+/*.md-button {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+.btn1 {
+  color : rgb(49, 46, 46);
+  background-color: rgba(255, 222, 121, 0.96);
+  border-radius: 10px 0 0 10px;
+  font-size: 16px;
+}
+
+.btn1:not([disabled]):hover {
+  background-color: rgba(107, 103, 91, 0.96);
+  color: white;
+}
+
+.btn1[disabled] {
+  color : rgb(187, 187, 187);
+  background-color: rgba(230, 230, 229, 0.96);
+}
+.md-button.md-raised:not([disabled]) {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+}
+.md-button.md-cornered {
+    border-radius: 0;
+}
+.md-button.md-fab {
+  line-height: 5.6rem;
+  min-width: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+}*/
